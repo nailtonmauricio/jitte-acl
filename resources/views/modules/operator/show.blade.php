@@ -12,7 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-edit')
-                    <a href="{{ route('user.edit', ['user'=>$user->id]) }}" class="bg-gradient btn btn-sm btn-dark"><i
+                    <a href="{{ route('user.edit', ['user'=>$user->id]) }}" class="bg-gradient btn btn-sm btn-primary"><i
                             class="fas fa-user-edit"></i></a>
                     @endcan
                     <a href="{{ route('user.index') }}" class="bg-gradient btn btn-primary btn-sm"><i

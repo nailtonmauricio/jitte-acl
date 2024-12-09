@@ -3,19 +3,19 @@
 CLONANDO PROJETOS
 
 * Clone, mantendo nome original do projeto:
-```
-git clone caminho_projeto
+```sh
+git clone https://github.com/nailtonmauricio/jitte-acl.git
 ```
 ou
 
 * Clone, alterando o nome do projeto:
-```
-git clone --recurse-submodules caminho_projeto novo_nome_projeto
+```sh
+git clone --recurse-submodules https://github.com/nailtonmauricio/jitte-acl.git novo_nome_projeto
 ```
 
 ## QUANDO NECESSÁRIO AJUSTE AS PERMISSÕES DE DIRETÓRIOS E ARQUIVOS
-ALTERAR O PROPIETÁRIO DO DIRETÓRIO DO PROJETO PARA O USUÁRIO HOST
-```
+ALTERAR O PROPRIETÁRIO DO DIRETÓRIO DO PROJETO PARA O USUÁRIO HOST
+```sh
 sudo chown -R $USER:$USER /caminho_do_projeto
 ```
 

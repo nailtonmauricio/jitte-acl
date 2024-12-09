@@ -12,7 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-create')
-                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-success btn-sm"><i
+                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-primary btn-sm"><i
                                 class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
@@ -27,24 +27,23 @@
                         <th>CLASSE</th>
                         <th class="d-none d-md-table-cell">CRIADO</th>
                         <th class="d-none d-md-table-cell">MODIFICADO</th>
-                        <th>OPÇÕES</th>
+                        <th class="text-center">OPÇÕES</th>
                     </tr>
                     </thead>
                     <tbody>
                     @forelse($roles as $role)
-
                         <tr>
-                            <td class="text-capitalize">{{ $role->id }}</td>
-                            <td class="text-capitalize">{{ $role->name }}</td>
-                            <td class="text-capitalize">{{ $role->guard_name }}</td>
-                            <td class="d-none d-md-table-cell">{{ \Carbon\Carbon::parse($role->created_at)->format('d/m/Y H:i:s') }}</td>
-                            <td class="d-none d-md-table-cell">{{ \Carbon\Carbon::parse($role->updated_at)->format('d/m/Y H:i:s') }}</td>
-                            <td>
+                            <td class="text-capitalize align-middle">{{ $role->id }}</td>
+                            <td class="text-capitalize align-middle">{{ $role->name }}</td>
+                            <td class="text-capitalize align-middle">{{ $role->guard_name }}</td>
+                            <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($role->created_at)->format('d/m/Y H:i:s') }}</td>
+                            <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($role->updated_at)->format('d/m/Y H:i:s') }}</td>
+                            <td class="text-center">
                                 <a href="{{ route('role-permission.index', ['role'=> $role->id]) }}"
-                                   class="bg-gradient btn btn-xs btn-primary me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
                                         class="fa-solid fa-list-check"></i></a>
                                 <a href="{{ route('role.edit', ['role'=>$role->id]) }}"
-                                   class="bg-gradient btn btn-xs btn-dark me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
                                         class="fas fa-user-edit"></i></a>
                             </td>
                         </tr>
