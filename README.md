@@ -97,3 +97,7 @@ Acessar o projeto
 
 Acessar o PHPMyadmin
 [http://localhost:8080](http://localhost:8080)
+
+Login no Sistema
+* E-Mail: admin@admin.com.br
+* Senha: admin

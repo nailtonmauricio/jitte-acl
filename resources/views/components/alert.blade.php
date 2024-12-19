@@ -1,86 +1,86 @@
-@if(session()->has('success'))
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            Swal.fire({
-                title: "Wow!",
-                text: "{{ session('success') }}",
-                showConfirmButton: false,
-                icon: "success",
-                timer: 2000
-            });
-        });
-    </script>
-@endif
-
-@if(session()->has('error'))
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            Swal.fire({
-                title: "Oops!",
-                showConfirmButton: false,
-                text: "{{ session('error') }}",
-                icon: "error",
-                timer: 2000
-            });
-        });
-    </script>
-@endif
-
-@if(session()->has('warning'))
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            Swal.fire({
-                title: "Atenção!",
-                showConfirmButton: false,
-                text: "{{ session('warning') }}",
-                icon: "warning",
-                timer: 2000
-            });
-        });
-    </script>
-@endif
-
-@if(session()->has('info'))
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            Swal.fire({
-                title: "Informação",
-                showConfirmButton: false,
-                text: "{{ session('info') }}",
-                icon: "info",
-                timer: 2000
-            });
-        });
-    </script>
-@endif
-
-{{-- Faz o loop nos erros de validação --}}
-@if($errors->any())
-    @php
-        $messages = $errors->all();
-    @endphp
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let delay = 0;
-            @foreach ($messages as $message)
-            setTimeout(() => {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Objeto centralizado para gerenciar alertas
+        const Alert = {
+            // Função para exibir um alerta padrão
+            showAlert: (text, icon) => {
                 Swal.fire({
-                    title: "Oops!",
+                    text: text,
+                    icon: icon,
                     showConfirmButton: false,
-                    text: @json($message),
-                    icon: "error",
+                    timer: 5000
+                });
+            },
+
+            // Função para exibir um toast
+            showToast: (title, icon) => {
+                const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
-                    iconColor: 'white',
-                    customClass: {
-                        popup: 'colored-toast',
-                    },
+                    showConfirmButton: false,
+                    timer: 5000,
                     timerProgressBar: true,
-                    timer: 3000
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer);
+                        toast.addEventListener('mouseleave', Swal.resumeTimer);
+                    }
                 });
-            }, delay);
-            delay += 3000; // 2000ms for the toast + 100ms buffer
-            @endforeach
+
+                Toast.fire({
+                    icon: icon,
+                    title: title
+                });
+            },
+
+            // Função para exibir um loader
+            showLoading: () => {
+                Swal.fire({
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    willOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+            },
+
+            // Função para fechar qualquer alerta/loader
+            close: () => {
+                Swal.close();
+            }
+        };
+
+        // Sessões gerenciadas de forma dinâmica
+        const sessions = {
+            success: "{{ session('success') }}",
+            toastSuccess: "{{ session('toastSuccess') }}",
+            error: "{{ session('error') }}",
+            warning: "{{ session('warning') }}",
+            info: "{{ session('info') }}",
+            toastInfo: "{{ session('toastInfo') }}"
+        };
+
+        // Verifica cada sessão e exibe o alerta/toast apropriado
+        Object.entries(sessions).forEach(([key, value]) => {
+            if (value) {
+                if (key.startsWith('toast')) {
+                    Alert.showToast(value, key.replace('toast', '').toLowerCase());
+                } else {
+                    Alert.showAlert(value, key.toLowerCase());
+                }
+            }
         });
-    </script>
-@endif
+
+        // Exibição de erros de validação
+        @if($errors->any())
+        const messages = @json($errors->all());
+        let delay = 0;
+
+        messages.forEach((message) => {
+            setTimeout(() => {
+                Alert.showToast(message, 'error');
+            }, delay);
+            delay += 5000;
+        });
+        @endif
+    });
+</script>

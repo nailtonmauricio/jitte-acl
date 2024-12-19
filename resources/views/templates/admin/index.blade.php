@@ -25,9 +25,6 @@
                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fa-solid fa-user-gear me-2"></i>Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider"/>
-                </li>
                 <li><a class="dropdown-item" href="{{ route('logout.process', ['user']) }}"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i>Sair</a></li>
             </ul>
         </li>

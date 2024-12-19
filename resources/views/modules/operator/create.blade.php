@@ -60,7 +60,7 @@
                         <label for="roles">Nível de acesso</label>
                     </div>
                     <div class="d-flex justify-content-end mb-2">
-                        <button type="submit" class="bg-gradient btn btn-primary">Gravar</button>
+                        <button type="submit" class="bg-gradient btn btn-primary" onclick="showLoading()">Gravar</button>
                     </div>
                 </form>
             </div>
