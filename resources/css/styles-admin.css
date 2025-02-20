@@ -1,0 +1,75 @@
+.bg-nav{
+    background-color: #183181;
+}
+
+.sb-sidenav-five {
+    background-color: #f9fafc;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, .10), 0 8px 8px rgba(0, 0, 0, .10) !important;
+}
+
+.sb-sidenav-five .sb-sidenav-menu .sb-sidenav-menu-heading {
+    color: rgba(41, 41, 41, 0.5);
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link {
+    color: rgba(41, 41, 41, 0.9);
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link .sb-nav-link-icon {
+    color: rgba(41, 41, 41, 0.9);
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
+    color: rgba(41, 41, 41, 0.25);
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link:hover {
+    color: #181818;
+    background-color: #f0efef;
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link.active {
+    color: #181818;
+    background-color: #f0efef;
+}
+
+.sb-sidenav-five .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
+    color: #181818;
+    background-color: #f0efef;
+}
+
+.sb-sidenav-five .sb-sidenav-footer {
+    background-color: #eeeded;
+}
+
+.colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+    background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+    background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+    background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+    color: white;
+}
+
+.colored-toast .swal2-close {
+    color: white;
+}
+
+.colored-toast .swal2-html-container {
+    color: white;
+}
