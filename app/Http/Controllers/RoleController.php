@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Spatie\Permission\Models\Role;
@@ -38,8 +39,24 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('modules.role.create', ['menu' => 'niveis-acesso']);
+        $userRole = Auth::user()->roles()->orderBy('order_roles')->first();
+
+        if (!$userRole) {
+            abort(403, 'Oops! Usuário sem permissões válidas');
+        }
+
+        // Pegando todas as roles com `order_roles` maior ou igual ao do usuário autenticado
+        $roles = Role::where('order_roles', '>=', $userRole->order_roles)
+            ->orderBy('order_roles') // Garantindo ordenação correta
+            ->get()
+            ->map(fn($role) => "{$role->order_roles} - {$role->name}");
+
+        return view('modules.role.create', [
+            'menu' => 'roles',
+            'roles' => $roles
+        ]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +67,7 @@ class RoleController extends Controller
         try {
             Role::create([
                 'name' => $request->name,
-                'guard_name' => $request->guard_name,
+                'guard_name' => $request->guard_name ?? 'web',
                 'order_roles' => $request->order_roles
             ]);
 
