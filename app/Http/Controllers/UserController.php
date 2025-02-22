@@ -43,10 +43,22 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::orderBy('name', 'asc')->pluck('name')->all();
+        $userRoleOrder = Auth::user()->roles()->orderBy('order_roles')->first();
 
-        return view('modules.operator.create', ['menu' => 'operadores', 'roles' => $roles]);
+        if (!$userRoleOrder) {
+            abort(403, 'Oops! Usuário sem permissões válidas');
+        }
+
+        $roles = Role::where('order_roles', '>=', $userRoleOrder->order_roles)
+            ->pluck('name')
+            ->all();
+
+        return view('modules.operator.create', [
+            'menu' => 'operadores',
+            'roles' => $roles
+        ]);
     }
+
 
     /**
      * Store a newly created resource in storage.

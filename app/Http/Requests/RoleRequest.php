@@ -14,6 +14,13 @@ class RoleRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'guard_name' => strtolower($this->guard_name),
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -32,9 +39,9 @@ class RoleRequest extends FormRequest
     {
         return [
             'name.required' => 'Nome para o nível de acesso não pode estar vazio',
-            'guard_name.required' => 'Necessário preencher o guard_name',
-            'order_roles.required' => 'Necessário preencher a ordem',
-            'order_roles.not_in' => 'Valor não elegível para campo ordem.',
+            'guard_name.required' => 'Necessário selecionar o tipo de controle',
+            'order_roles.required' => 'Necessário selecionar a ordem',
+            'order_roles.not_in' => 'Valor não elegível para campo ordem',
         ];
     }
 }
