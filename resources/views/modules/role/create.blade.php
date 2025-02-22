@@ -43,8 +43,6 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        {{--<input type="text" class="form-control" id="order_roles" name="order_roles"
-                               placeholder="Ordem" value="{{ old('order_roles') }}">--}}
                         <select name="order_roles" id="order_roles" class="form-control">
                             <option value="">Selecione</option>
                             @foreach($roles as $order => $roleName)
