@@ -31,7 +31,7 @@ class RoleRequest extends FormRequest
         return [
             'name' => 'required | max:255',
             'guard_name' => 'required | max:255',
-            'order_roles' => 'required|integer|not_in:1',
+            'order_roles' => 'required| string',
         ];
     }
 
@@ -41,7 +41,6 @@ class RoleRequest extends FormRequest
             'name.required' => 'Nome para o nível de acesso não pode estar vazio',
             'guard_name.required' => 'Necessário selecionar o tipo de controle',
             'order_roles.required' => 'Necessário selecionar a ordem',
-            'order_roles.not_in' => 'Valor não elegível para campo ordem',
         ];
     }
 }

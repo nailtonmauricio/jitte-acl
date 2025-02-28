@@ -48,12 +48,12 @@ class RoleController extends Controller
         // Pegando todas as roles com `order_roles` maior ou igual ao do usuário autenticado
         $roles = Role::where('order_roles', '>=', $userRole->order_roles)
             ->orderBy('order_roles') // Garantindo ordenação correta
-            ->get()
-            ->map(fn($role) => "{$role->order_roles} - {$role->name}");
+            ->get();
+            #->map(fn($role) => "{$role->order_roles} - {$role->name}");
 
         return view('modules.role.create', [
             'menu' => 'roles',
-            'roles' => $roles
+            'roles' => $roles,
         ]);
     }
 
@@ -86,8 +86,25 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('modules.role.edit', compact('role'), ['menu' => 'niveis-acesso']);
+        $userRole = Auth::user()->roles()->orderBy('order_roles')->first();
+
+        if (!$userRole) {
+            abort(403, 'Oops! Usuário sem permissões válidas');
+        }
+
+        // Pegando todas as roles com `order_roles` maior ou igual ao do usuário autenticado
+        $roles = Role::where('order_roles', '>=', $userRole->order_roles)
+            ->orderBy('order_roles')
+            ->get();
+            #->map(fn($r) => "{$r->order_roles} - {$r->name}");
+
+        return view('modules.role.edit', [
+            'menu' => 'niveis-acesso',
+            'roles' => $roles,
+            'role' => $role,
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.

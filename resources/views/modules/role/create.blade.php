@@ -27,11 +27,6 @@
                                placeholder="Nome da permissão" value="{{ old('name') }}" autofocus>
                         <label for="name">Nome</label>
                     </div>
-                    {{--<div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="guard_name" name="guard_name"
-                               placeholder="Tipo de rota" value="{{ old('guard_name') }}">
-                        <label for="guard_name">Tipo de controle</label>
-                    </div>--}}
 
                     <div class="form-floating mb-3">
                         <select name="guard_name" class="form-select" id="guard_name">
@@ -43,14 +38,19 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <select name="order_roles" id="order_roles" class="form-control">
-                            <option value="">Selecione</option>
-                            @foreach($roles as $order => $roleName)
-                                <option value="{{ $order }}">{{ $roleName }}</option>
+                        @php
+                            $nextRoleId = $roles->max('id') + 1;
+                        @endphp
+
+                        <select name="order_roles" id="order_roles" class="form-select">
+                            <option value="{{ $nextRoleId }}">Selecione</option>
+                            @foreach($roles as $role)
+                                <option value="{{ $role->order_roles }}">{{ $role->name }}</option>
                             @endforeach
                         </select>
-                        <label for="guard_name">Ordem</label>
+                        <label for="order_roles">Ordem</label>
                     </div>
+
                     <div class="d-flex justify-content-end mb-2">
                         <button type="submit" class="bg-gradient btn btn-primary">Gravar</button>
                     </div>

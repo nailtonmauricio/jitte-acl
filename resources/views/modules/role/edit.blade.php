@@ -24,15 +24,26 @@
                         <input type="text" id="name" class="form-control" name="name" placeholder="Nome do nível de acesso" value="{{ old('name', $role->name) }}" autofocus required>
                         <label for="full_name">Nome</label>
                     </div>
+
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="guard_name" name="guard_name" placeholder="Classe" value="{{ old('guard_name', $role->guard_name) }}">
-                        <label for="nickname">Classe</label>
+                        <select name="guard_name" class="form-select" id="guard_name">
+                            <option value="">Selecione</option>
+                            <option value="web" {{ old('guard_name', $role->guard_name ?? '') == 'web' ? 'selected' : '' }}>Web</option>
+                            <option value="api" {{ old('guard_name', $role->guard_name ?? '') == 'api' ? 'selected' : '' }}>API</option>
+                        </select>
+                        <label for="guard_name">Tipo de controle</label>
                     </div>
+
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="order_roles" name="order_roles"
-                               placeholder="Ordem" value="{{ old('order_roles', $role->order_roles) }}">
-                        <label for="guard_name">Ordem</label>
+                        <select name="order_roles" id="order_roles" class="form-select">
+                            <option value="{{ old('order_roles', $role->order_roles) }}">{{ old('order_roles', $role->order_roles.' - ' .$role->name) }}</option>
+                            @foreach($roles as $order)
+                                <option value="{{ $order->order_roles }}">{{ $order->order_roles .' - '. $order->name }}</option>
+                            @endforeach
+                        </select>
+                        <label for="order_roles">Ordem</label>
                     </div>
+
                     <div class="d-flex justify-content-end mb-2">
                         <button type="submit" class="bg-gradient btn btn-primary">Gravar</button>
                     </div>
