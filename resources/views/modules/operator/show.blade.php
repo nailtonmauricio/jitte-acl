@@ -12,10 +12,10 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-edit')
-                    <a href="{{ route('user.edit', ['user'=>$user->id]) }}" class="bg-gradient btn btn-sm btn-primary"><i
+                    <a href="{{ route('user.edit', ['user'=>$user->id]) }}" class="bg-gradient btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Editar" aria-label="Editar"><i
                             class="fas fa-user-edit"></i></a>
                     @endcan
-                    <a href="{{ route('user.index') }}" class="bg-gradient btn btn-primary btn-sm"><i
+                    <a href="{{ route('user.index') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Listar" aria-label="Listar"><i
                             class="fa-solid fa-list"></i></a>
                 </span>
             </div>

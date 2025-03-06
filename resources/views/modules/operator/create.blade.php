@@ -11,7 +11,7 @@
         <div class="card mb-4 border-light shadow">
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
-                    <a href="{{ route('user.index') }}" class="bg-gradient btn btn-primary btn-sm"><i
+                    <a href="{{ route('user.index') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Listar" aria-label="Listar"><i
                             class="fa-solid fa-list"></i></a>
                 </span>
             </div>

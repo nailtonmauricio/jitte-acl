@@ -12,8 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-create')
-                        <a href="{{ route('user.create') }}" class="bg-gradient btn btn-primary btn-sm"><i
-                                class="fa-solid fa-plus"></i></a>
+                        <a href="{{ route('user.create') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Novo" aria-label="Novo"><i class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
             </div>
@@ -40,12 +39,12 @@
                             <td class="d-md-flex justify-content-center">
                                 @can('user-show')
                                 <a href="{{ route('user.show', ['user'=> $user->id]) }}"
-                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Visualizar" aria-label="Visualizar"><i
                                         class="fa-solid fa-folder-open"></i></a>
                                 @endcan
                                 @can('user-edit')
                                 <a href="{{ route('user.edit', ['user'=>$user->id]) }}"
-                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Editar" aria-label="Editar"><i
                                         class="fas fa-user-edit"></i></a>
                                 @endcan
                                 @can('user-destroy')
@@ -53,7 +52,7 @@
                                       method="post" class="delete-form">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
+                                    <button type="submit" class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Remover" aria-label="Remover"><i
                                             class="fas fa-user-minus"></i></button>
                                 </form>
                                 @endcan
