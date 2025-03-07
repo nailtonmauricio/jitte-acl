@@ -12,7 +12,7 @@
             <div class="card-header hstack gap-2">
                 <span class="ms-auto">
                     @can('user-create')
-                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-primary btn-sm"><i
+                        <a href="{{ route('role.create') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Novo" aria-label="Novo"><i
                                 class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
@@ -40,10 +40,10 @@
                             <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($role->updated_at)->format('d/m/Y H:i:s') }}</td>
                             <td class="text-center">
                                 <a href="{{ route('role-permission.index', ['role'=> $role->id]) }}"
-                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Permissões" aria-label="Permissões"><i
                                         class="fa-solid fa-list-check"></i></a>
                                 <a href="{{ route('role.edit', ['role'=>$role->id]) }}"
-                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0"><i
+                                   class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Editar" aria-label="Editar"><i
                                         class="fas fa-user-edit"></i></a>
                             </td>
                         </tr>

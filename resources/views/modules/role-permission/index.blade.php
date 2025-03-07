@@ -22,7 +22,7 @@
                     </form>
                 </div>
                 <span class="ms-auto">
-                    <a href="{{ route('role.index') }}" class="bg-gradient btn btn-primary btn-sm">
+                    <a href="{{ route('role.index') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Listar" aria-label="Listar">
                         <i class="fa-solid fa-list"></i>
                     </a>
                 </span>
@@ -54,7 +54,7 @@
                                             <input type="hidden" name="permission" value="{{ $permission->name }}">
                                             <input type="hidden" name="statusPermission" value="0">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" checked>
+                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" checked data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Ativo" aria-label="Ativo">
                                                 <label class="sr-only" for="statusPermission">Status da
                                                     permissão</label>
                                             </div>
@@ -69,7 +69,7 @@
                                             <input type="hidden" name="permission" value="{{ $permission->name }}">
                                             <input type="hidden" name="statusPermission" value="0">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1">
+                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Inativo" aria-label="Inativo">
                                                 <label class="sr-only" for="statusPermission">Status da
                                                     permissão</label>
                                             </div>
