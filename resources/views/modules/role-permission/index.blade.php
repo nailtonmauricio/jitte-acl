@@ -54,7 +54,7 @@
                                             <input type="hidden" name="permission" value="{{ $permission->name }}">
                                             <input type="hidden" name="statusPermission" value="0">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" checked data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Ativo" aria-label="Ativo">
+                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" checked data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Clique para, bloquear!" aria-label="Bloquear">
                                                 <label class="sr-only" for="statusPermission">Status da
                                                     permissão</label>
                                             </div>
@@ -69,7 +69,7 @@
                                             <input type="hidden" name="permission" value="{{ $permission->name }}">
                                             <input type="hidden" name="statusPermission" value="0">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Inativo" aria-label="Inativo">
+                                                <input class="form-check-input" type="checkbox" id="statusPermission" name="statusPermission" onchange="document.getElementById('permissionForm-{{ $permission->id }}').submit()" value="1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Clique para, liberar!" aria-label="Liberar">
                                                 <label class="sr-only" for="statusPermission">Status da
                                                     permissão</label>
                                             </div>
