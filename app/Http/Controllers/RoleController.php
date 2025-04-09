@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\RoleRequest;
 use Exception;
 use Illuminate\Support\Facades\Auth;
@@ -150,5 +151,31 @@ class RoleController extends Controller
 
             return back()->withInput()->with('error', 'Nível de acesso não editado!');
         }
+    }
+
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm'); // Recupera o termo de pesquisa
+        $loggedUser = auth()->user(); // Obtém o usuário autenticado
+        $loggedUserRole = $loggedUser->roles()->first(); // Obtém a primeira role do usuário
+
+        if (!$loggedUserRole) {
+            abort(403, 'Usuário sem papel associado');
+        }
+
+
+        $roles = Role::where('name', '!=', 'root')
+            ->where('id', '!=', $loggedUserRole->id)
+            ->where('order_roles', '>', $loggedUserRole->order_roles)
+            ->where(function ($query) use ($searchTerm) {
+                $query->where('name', 'like', '%' . $searchTerm . '%');
+            })
+            ->paginate(8);
+
+        return view('modules.role.index', [
+            'menu' => 'niveis-acesso',
+            'roles' => $roles
+        ]);
     }
 }

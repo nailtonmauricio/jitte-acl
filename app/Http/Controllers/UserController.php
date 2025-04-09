@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -261,5 +262,30 @@ class UserController extends Controller
             // Redirecionar o usuário, enviar a mensagem de erro
             return redirect()->route('user.index')->with('error', 'Usuário não excluído!');
         }
+    }
+
+
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm'); // Recupera o termo de pesquisa
+
+        // Obtém o usuário autenticado
+        $authenticatedUser = auth()->user();
+
+        // Obtém o nível do usuário autenticado
+        $authenticatedUserLevel = $authenticatedUser->roles[0]->order_roles;
+
+        // Realiza a busca nas permissões com like
+        $users = User::where(function ($query) use ($searchTerm) {
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('email', 'like', '%' . $searchTerm . '%');
+        })
+            ->whereHas('roles', function ($query) use ($authenticatedUserLevel) {
+                $query->where('order_roles', '>=', $authenticatedUserLevel);
+            })
+            ->where('id', '!=', $authenticatedUser->id)
+            ->paginate(8);
+
+        return view('modules.operator.index', ['menu' => 'operadores', 'users' => $users]);
     }
 }
