@@ -9,6 +9,7 @@
     ])
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <title>{{ env('APP_NAME') }}</title>
+    @livewireStyles
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark bg-gradient">
@@ -97,5 +98,6 @@
 </div>
 
 @stack('scripts')
+@livewireScripts
 </body>
 </html>
