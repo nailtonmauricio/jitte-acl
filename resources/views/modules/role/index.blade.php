@@ -9,11 +9,19 @@
         </div>
 
         <div class="card mb-4 border-light shadow">
-            <div class="card-header hstack gap-2">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="flex-grow-1 d-flex justify-content-center">
+                    <form class="d-flex" method="GET" action="{{ route('role.search') }}">
+                        <div class="input-group">
+                            <input id="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch">
+                            <button class="btn btn-primary bg-gradient" type="submit" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
+                </div>
                 <span class="ms-auto">
                     @can('user-create')
                         <a href="{{ route('role.create') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Novo" aria-label="Novo"><i
-                                class="fa-solid fa-plus"></i></a>
+                                    class="fa-solid fa-plus"></i></a>
                     @endcan
                 </span>
             </div>
@@ -22,9 +30,8 @@
                 <table id="customers" class="display table table-stripped table-hover mb-2">
                     <thead>
                     <tr>
-                        <th>ID</th>
                         <th>NOME</th>
-                        <th>CLASSE</th>
+                        <th>TIPO</th>
                         <th class="d-none d-md-table-cell">CRIADO</th>
                         <th class="d-none d-md-table-cell">MODIFICADO</th>
                         <th class="text-center">OPÇÕES</th>
@@ -33,7 +40,6 @@
                     <tbody>
                     @forelse($roles as $role)
                         <tr>
-                            <td class="text-capitalize align-middle">{{ $role->id }}</td>
                             <td class="text-capitalize align-middle">{{ $role->name }}</td>
                             <td class="text-capitalize align-middle">{{ $role->guard_name }}</td>
                             <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($role->created_at)->format('d/m/Y H:i:s') }}</td>

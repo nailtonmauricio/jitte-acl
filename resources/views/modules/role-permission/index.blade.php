@@ -13,8 +13,7 @@
         <div class="card mb-4 border-light shadow">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="flex-grow-1 d-flex justify-content-center">
-                    <form class="d-flex" method="GET" action="{{ route('role.search', ['role' => $role->id]) }}">
-                        @csrf
+                    <form class="d-flex" method="GET" action="{{ route('role-permission.search', ['role' => $role->id]) }}">
                         <div class="input-group">
                             <input id="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch">
                             <button class="btn btn-primary bg-gradient" type="submit" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
