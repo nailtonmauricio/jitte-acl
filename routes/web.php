@@ -1,10 +1,6 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PositionController;
 use App\Http\Controllers\RecoverController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -12,7 +8,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\WorkloadController;
 use Illuminate\Support\Facades\Route;
 
 ###################### ROTAS PÚBLICAS ##########################
@@ -71,8 +66,6 @@ Route::group(['middleware' => 'auth'], function () {
     ###################### ROTAS DE OPERADORES ########################
     Route::group(['prefix' => 'operadores', 'as' => 'user.'], function () {
 
-        Route::resource('/', UserController::class)->parameters(['' => 'user']);
-
         // Middleware para rotas específicas
         Route::middleware('permission:user-create')->group(function () {
             Route::get('/novo', [UserController::class, 'create'])->name('create');
@@ -87,6 +80,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::middleware('permission:user-delete')->group(function () {
             Route::delete('/{user}', [UserController::class, 'destroy'])->name('destroy');
         });
+
+        Route::resource('/', UserController::class)->parameters(['' => 'user']);
+        Route::get('/{user}/buscar', [UserController::class, 'search'])->name('search');
     });
     ###################################################################
 
@@ -96,6 +92,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/perfil', [ProfileController::class, 'update'])->name('profile.update');
 
     /** Rotas dos níveis de acesso */
+    Route::get('/niveis-acesso/busca', [RoleController::class, 'search'])->name('role.search');
     Route::resource('/niveis-acesso', RoleController::class)->names('role')->parameters([
         'niveis-acesso' => 'role',
     ]);
@@ -103,6 +100,6 @@ Route::group(['middleware' => 'auth'], function () {
     /** Rotas das permissões */
     Route::get('/permissoes/{role}', [RolePermissionController::class, 'index'])->name('role-permission.index')->middleware('permission:role-index');
     Route::post('/permissoes/{role}/{permission}', [RolePermissionController::class, 'update'])->name('role-permission.update')->middleware('permission:role-update');
-    Route::get('/permissoes/{role}/search', [RolePermissionController::class, 'search'])->name('role.search');
+    Route::get('/permissoes/{role}/buscar', [RolePermissionController::class, 'search'])->name('role-permission.search');
 });
 ################################################################
