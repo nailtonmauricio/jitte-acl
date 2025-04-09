@@ -60,8 +60,7 @@ class LoginController extends Controller
             }
 
             $user->syncPermissions($permissions);
-
-            return redirect()->route('home.index')->with('toastSuccess', 'Bem-vindo, '.auth()->user()->name);
+            return redirect()->route('home.index')->with('toastSuccess', 'Bem-vindo, '.explode(' ', auth()->user()->name)[0].'!');
 
         } catch (Exception $e) {
             Log::error('Erro ao tentar efetuar login.', ['email' => $request->email, 'exception' => $e]);
