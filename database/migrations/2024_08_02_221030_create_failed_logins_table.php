@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('failed_logins', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('ip_address');
             $table->timestamp('attempted_at');
