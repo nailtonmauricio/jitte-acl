@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InstallController;
 use App\Http\Controllers\RecoverController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -50,11 +51,15 @@ Route::group([], function () {
          */
         Route::post('/change-password', [RecoverController::class, 'update'])->name('change-password');
     });
-    ###############################################################
 });
-################################################################
+
 
 ###################### ROTAS PROTEGIDAS ########################
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/install', [InstallController::class, 'index'])->name('install.index');
+    Route::post('/install', [InstallController::class, 'store'])->name('install.store');
+});
+
 Route::group(['middleware' => 'auth'], function () {
 
     /** Logout page route */
@@ -84,8 +89,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/', UserController::class)->parameters(['' => 'user']);
         Route::get('/{user}/buscar', [UserController::class, 'search'])->name('search');
     });
-    ###################################################################
-
 
     /** Rotas do perfil */
     Route::get('/perfil/editar', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -102,4 +105,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/permissoes/{role}/{permission}', [RolePermissionController::class, 'update'])->name('role-permission.update')->middleware('permission:role-update');
     Route::get('/permissoes/{role}/buscar', [RolePermissionController::class, 'search'])->name('role-permission.search');
 });
-################################################################
