@@ -28,19 +28,11 @@ class RolePermissionController extends Controller
             return redirect()->route('role.index')->with('error', 'Acesso negado');
         }
 
-        // Recupera as permissões do nível de acesso
-        $rolePermissions = $role->permissions()->pluck('id')->toArray();
-
-        // Recupera todas as permissões com paginação
-        $permissions = Permission::paginate(8);
-
         Log::info('Listar permissões do nível de acesso', ['role_id' => $role->id, 'user_id' => Auth::id()]);
 
         // Carregar a view
         return view('modules.role-permission.index', [
             'menu' => 'niveis-acesso',
-            'rolePermissions' => $rolePermissions,
-            'permissions' => $permissions,
             'role' => $role,
         ]);
     }
@@ -69,7 +61,8 @@ class RolePermissionController extends Controller
      * @return \Illuminate\Container\Container|mixed|object
      * Search for a specific term in a role-permission table
      */
-    public function search(Role $role, Request $request)
+    //USADO SEM O LIVEWIRE
+    /*public function search(Role $role, Request $request)
     {
         $searchTerm = $request->input('searchTerm'); // Recupera o termo de pesquisa
 
@@ -106,5 +99,5 @@ class RolePermissionController extends Controller
             'role' => $role,
             'searchTerm' => $searchTerm, // Passa o termo de busca para a view
         ]);
-    }
+    }*/
 }

@@ -17,21 +17,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $loggedUser = auth()->user(); // Obtém o usuário autenticado
-        $loggedUserRole = $loggedUser->roles()->first(); // Obtém a primeira role do usuário
-
-        if (!$loggedUserRole) {
-            abort(403, 'Usuário sem papel associado');
-        }
-
-        $roles = Role::where('name', '!=', 'root')
-            ->where('id', '!=', $loggedUserRole->id)
-            ->where('order_roles', '>', $loggedUserRole->order_roles)
-            ->paginate(8);
-
-        return view('modules.role.index', [
-            'menu' => 'niveis-acesso',
-            'roles' => $roles
+      return view('modules.role.index', [
+            'menu' => 'niveis-acesso'
         ]);
     }
 
@@ -153,8 +140,8 @@ class RoleController extends Controller
         }
     }
 
-
-    public function search(Request $request)
+    //USADO SEM O LIVEWIRE
+    /*public function search(Request $request)
     {
         $searchTerm = $request->input('searchTerm'); // Recupera o termo de pesquisa
         $loggedUser = auth()->user(); // Obtém o usuário autenticado
@@ -177,5 +164,5 @@ class RoleController extends Controller
             'menu' => 'niveis-acesso',
             'roles' => $roles
         ]);
-    }
+    }*/
 }

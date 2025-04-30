@@ -19,24 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // Obtém o usuário autenticado
-        $authenticatedUser = auth()->user();
-
-        // Obtém o nível do usuário autenticado
-        $authenticatedUserLevel = $authenticatedUser->roles[0]->order_roles;
-
-        // Obtém o ID do usuário logado
-        $loggedUserId = $authenticatedUser->id;
-
-        // Busca os usuários com nível igual ou menor que o do usuário logado
-        $users = User::whereHas('roles', function ($query) use ($authenticatedUserLevel) {
-            $query->where('order_roles', '>=', $authenticatedUserLevel);
-        })
-            ->where('name', '!=', 'Root')
-            ->where('id', '!=', $loggedUserId)
-            ->paginate(8);
-
-        return view('modules.operator.index', ['menu' => 'operadores', 'users' => $users]);
+        return view('modules.operator.index', ['menu' => 'operadores']);
     }
 
     /**
@@ -264,8 +247,8 @@ class UserController extends Controller
         }
     }
 
-
-    public function search(Request $request)
+    //USADO QUANDO SEM O LIVEWIRE
+    /*public function search(Request $request)
     {
         $searchTerm = $request->input('searchTerm'); // Recupera o termo de pesquisa
 
@@ -287,5 +270,5 @@ class UserController extends Controller
             ->paginate(8);
 
         return view('modules.operator.index', ['menu' => 'operadores', 'users' => $users]);
-    }
+    }*/
 }
