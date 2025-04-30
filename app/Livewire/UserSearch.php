@@ -35,6 +35,10 @@ class UserSearch extends Component
             ->where('name', '!=', 'Root')
             ->paginate(8);
 
+        if (!empty($this->search) && $users->isEmpty()) {
+            $this->dispatch('no-results-found');
+        }
+
         return view('livewire.user-search', ['users' => $users]);
     }
 }

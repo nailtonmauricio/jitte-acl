@@ -42,6 +42,10 @@ class RolePermissionSearch extends Component
         $permissions = Permission::where('name', 'like', '%' . $this->search . '%')
             ->paginate(8);
 
+        if (!empty($this->search) && $permissions->isEmpty()) {
+            $this->dispatch('no-results-found');
+        }
+
         return view('livewire.role-permission-search', [
             'permissions' => $permissions,
             'rolePermissions' => $rolePermissions,

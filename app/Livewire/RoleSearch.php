@@ -31,6 +31,10 @@ class RoleSearch extends Component
             ->where('order_roles', '>', $loggedUserRole->order_roles)
             ->paginate(8);
 
+        if (!empty($this->search) && $roles->isEmpty()) {
+            $this->dispatch('no-results-found');
+        }
+
         return view('livewire.role-search', [
             'menu' => 'niveis-acesso',
             'roles' => $roles]);
