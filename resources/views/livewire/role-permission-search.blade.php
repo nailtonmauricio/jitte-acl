@@ -3,7 +3,7 @@
         <div class="flex-grow-1 d-flex justify-content-center">
             <form wire:submit.prevent="search" class="d-flex" method="POST">
                 @csrf
-                <input wire:model.live="search" id="search" name="search" class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch">
+                <input wire:model.live.debounce.500ms="search" id="search" name="search" class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch">
             </form>
         </div>
         <span class="ms-auto">
@@ -64,20 +64,41 @@
                     </td>
                 </tr>
             @empty
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-                        Swal.fire({
-                            title: "Info!",
-                            text: "Nenhuma permissão encontrada...",
-                            icon: "info",
-                            showConfirmButton: false,
-                            timer: 2000
-                        });
-                    });
-                </script>
+                <tr>
+                    <td class="text-center" colspan="5">Nenhum resultado encontrado</td>
+                </tr>
             @endforelse
             </tbody>
         </table>
+
+        <script>
+            let toastShown = false;
+
+            window.addEventListener('no-results-found', () => {
+                if (toastShown) return;
+                toastShown = true;
+
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'info',
+                    title: 'Nenhum resultado encontrado.',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                });
+
+                // Opcional: resetar o flag após o timer
+                setTimeout(() => {
+                    toastShown = false;
+                }, 3500);
+            });
+        </script>
+
         {{ $permissions->links() }}
     </div>
 </div>
