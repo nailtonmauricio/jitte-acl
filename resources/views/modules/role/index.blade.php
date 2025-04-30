@@ -8,7 +8,10 @@
             </ol>
         </div>
 
-        <div class="card mb-4 border-light shadow">
+        @livewire('role-search')
+
+        {{--TRECHO PARA SER USADO SEM O LIVEWIRE--}}
+        {{--<div class="card mb-4 border-light shadow">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="flex-grow-1 d-flex justify-content-center">
                     <form class="d-flex" method="GET" action="{{ route('role.search') }}">
@@ -70,7 +73,7 @@
                 </table>
                 {{ $roles->links() }}
             </div>
-        </div>
+        </div>--}}
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const deleteForms = document.querySelectorAll('.delete-form');
