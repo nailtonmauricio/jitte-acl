@@ -32,7 +32,7 @@
                     <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($user->created_at)->format('d/m/Y H:i:s') }}</td>
                     <td class="d-none d-md-table-cell align-middle">{{ \Carbon\Carbon::parse($user->updated_at)->format('d/m/Y H:i:s') }}</td>
                     @can('user-show')
-                        <td class="d-md-flex justify-content-center">
+                        <td class="text-center">
                             @can('user-show')
                                 <a href="{{ route('user.show', ['user'=> $user->id]) }}"
                                    class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Visualizar" aria-label="Visualizar"><i
@@ -44,13 +44,8 @@
                                             class="fas fa-user-edit"></i></a>
                             @endcan
                             @can('user-destroy')
-                                <form action="{{ route('user.destroy', ['user'=>$user->id]) }}"
-                                      method="post" class="delete-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Remover" aria-label="Remover"><i
+                                 <button wire:click="confirmDelete( {{ $user->id }})" class="bg-gradient btn btn-sm btn-primary me-2 mt-1 mt-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Remover" aria-label="Remover"><i
                                                 class="fas fa-user-minus"></i></button>
-                                </form>
                             @endcan
                         </td>
                     @else
@@ -58,13 +53,11 @@
                     @endcan
                 </tr>
             @empty
-                <tr>
-                    <td class="text-center" colspan="5">Nenhum resultado encontrado</td>
-                </tr>
+                <td class="text-center" colspan="5">Nenhum resultado encontrado</td>
             @endforelse
             </tbody>
         </table>
-
+        @push('scripts')
         <script>
             let toastShown = false;
 
@@ -91,8 +84,30 @@
                     toastShown = false;
                 }, 3500);
             });
-        </script>
 
+            //Realiza a chamada ao sweetalert de exclusão
+            window.addEventListener('show-delete-confirmation', event => {
+                const userId = event.detail.id;
+
+                Swal.fire({
+                    title: 'Você tem certeza?',
+                    text: "Essa ação não poderá ser desfeita!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sim, deletar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Emite o evento para Livewire
+                        //Livewire.emit('destroy', id);
+                        alert('Oops! Esta feature ainda não está pronta!')
+                    }
+                });
+            });
+        </script>
+        @endpush
         {{ $users->links() }}
     </div>
 </div>
