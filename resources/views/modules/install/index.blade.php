@@ -3,9 +3,9 @@
     <div class="container-fluid mt-3 col-6">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-sgdb-tab" data-bs-toggle="tab" data-bs-target="#nav-sgdb" type="button" role="tab" aria-controls="nav-sgdb" aria-selected="true">Base de Dados</button>
                 <button class="nav-link" id="nav-requirements-tab" data-bs-toggle="tab" data-bs-target="#nav-requirements" type="button" role="tab" aria-controls="nav-requirements" aria-selected="false">Requisitos</button>
                 <button class="nav-link" id="nav-terms-tab" data-bs-toggle="tab" data-bs-target="#nav-terms" type="button" role="tab" aria-controls="nav-terms" aria-selected="false">Termos</button>
+                <button class="nav-link active" id="nav-sgdb-tab" data-bs-toggle="tab" data-bs-target="#nav-sgdb" type="button" role="tab" aria-controls="nav-sgdb" aria-selected="true">Base de Dados</button>
                 <button class="nav-link" id="nav-dbconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-dbconfig" type="button" role="tab" aria-controls="nav-dbconfig" aria-selected="false">Configuração DB</button>
                 <button class="nav-link" id="nav-cmsconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-cmsconfig" type="button" role="tab" aria-controls="nav-cmsconfig" aria-selected="false">Configuração CMS</button>
                 <button class="nav-link" id="nav-install-tab" data-bs-toggle="tab" data-bs-target="#nav-install" type="button" role="tab" aria-controls="nav-install" aria-selected="false">Instalar CMS</button>
