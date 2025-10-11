@@ -3,74 +3,16 @@
     <div class="container-fluid mt-3 col-6">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link" id="nav-requirements-tab" data-bs-toggle="tab" data-bs-target="#nav-requirements" type="button" role="tab" aria-controls="nav-requirements" aria-selected="false">Requisitos</button>
+                <button class="nav-link active" id="nav-requirements-tab" data-bs-toggle="tab" data-bs-target="#nav-requirements" type="button" role="tab" aria-controls="nav-requirements" aria-selected="false">Requisitos</button>
                 <button class="nav-link" id="nav-terms-tab" data-bs-toggle="tab" data-bs-target="#nav-terms" type="button" role="tab" aria-controls="nav-terms" aria-selected="false">Termos</button>
-                <button class="nav-link active" id="nav-sgdb-tab" data-bs-toggle="tab" data-bs-target="#nav-sgdb" type="button" role="tab" aria-controls="nav-sgdb" aria-selected="true">Base de Dados</button>
+                <button class="nav-link" id="nav-sgdb-tab" data-bs-toggle="tab" data-bs-target="#nav-sgdb" type="button" role="tab" aria-controls="nav-sgdb" aria-selected="true">Base de Dados</button>
                 <button class="nav-link" id="nav-dbconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-dbconfig" type="button" role="tab" aria-controls="nav-dbconfig" aria-selected="false">Configuração DB</button>
                 <button class="nav-link" id="nav-cmsconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-cmsconfig" type="button" role="tab" aria-controls="nav-cmsconfig" aria-selected="false">Configuração CMS</button>
                 <button class="nav-link" id="nav-install-tab" data-bs-toggle="tab" data-bs-target="#nav-install" type="button" role="tab" aria-controls="nav-install" aria-selected="false">Instalar CMS</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-sgdb" role="tabpanel" aria-labelledby="nav-sgdb-tab" tabindex="0">
-                <!--
-                ====================================================================================================================
-                Seleção do SGDB
-                ====================================================================================================================
-                -->
-                <div class="mt-5">
-                    <div class="text-end mb-2">
-                        <button type="submit" class="btn btn-secondary" id="sendDB" name="sendDB">Próximo <span class="fas fa-angle-double-right"></span></button>
-                    </div>
-                    <div class="p-5 mb-4 bg-light rounded-3">
-                        <div class="py-2">
-                            <h1 class="display-6 fw-bold">Jitte CMS</h1>
-                            <p class="col-md-8 fs-4">Bem vindo à instalação do JITTE CMS Versão , uma ferramenta desenvolvida especialmente para você.</p>
-                            <p class="col-md-8 fs-4">Selecione o SGDB de sua preferência, as demais etapas da instalação levarão em conta essa configuração.</p>
-                        </div>
-                        <div class="text-end text-secondary">Jitte </div>
-                    </div>
-                    <form name="db-select" method="post" action="#">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-check mt-2 p-3 bg-light rounded-3">
-                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="mysql-mariadb">
-                                    <label class="form-check-label" for="mysql-mariadb">
-                                        <span class="fas fa-database display-5 ms-2 "></span>
-                                        MySQL/MariaDB
-                                    </label>
-                                </div>
-                                <div class="form-check mt-2 p-3 bg-light rounded-3">
-                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="postgresql" disabled>
-                                    <label class="form-check-label" for="postgresql">
-                                        <span class="fas fa-database display-5 ms-2 "></span>
-                                        PostgreSQL
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-check mt-2 p-3 bg-light rounded-3">
-                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="sqlite" disabled>
-                                    <label class="form-check-label" for="sqlite">
-                                        <span class="fas fa-database display-5 ms-2 "></span>
-                                        SQLite
-                                    </label>
-                                </div>
-                                <div class="form-check mt-2 p-3 bg-light rounded-3">
-                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="mongodb" disabled>
-                                    <label class="form-check-label" for="mongodb">
-                                        <span class="fas fa-database display-5 ms-2 "></span>
-                                        MongoDB
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-
-            <div class="tab-pane fade show" id="nav-requirements" role="tabpanel" aria-labelledby="nav-requirements-tab" tabindex="0">
+            <div class="tab-pane fade show active" id="nav-requirements" role="tabpanel" aria-labelledby="nav-requirements-tab" tabindex="0">
                 <!--
                 ====================================================================================================================
                 Requerimentos mínimos para instalação do projeto
@@ -219,6 +161,64 @@
 
                         <div class="text-end text-secondary">Jitte v1.0.0</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade show" id="nav-sgdb" role="tabpanel" aria-labelledby="nav-sgdb-tab" tabindex="0">
+                <!--
+                ====================================================================================================================
+                Seleção do SGDB
+                ====================================================================================================================
+                -->
+                <div class="mt-5">
+                    <div class="text-end mb-2">
+                        <button type="submit" class="btn btn-secondary" id="sendDB" name="sendDB">Próximo <span class="fas fa-angle-double-right"></span></button>
+                    </div>
+                    <div class="p-5 mb-4 bg-light rounded-3">
+                        <div class="py-2">
+                            <h1 class="display-6 fw-bold">Jitte CMS</h1>
+                            <p class="col-md-8 fs-4">Bem vindo à instalação do JITTE CMS Versão , uma ferramenta desenvolvida especialmente para você.</p>
+                            <p class="col-md-8 fs-4">Selecione o SGDB de sua preferência, as demais etapas da instalação levarão em conta essa configuração.</p>
+                        </div>
+                        <div class="text-end text-secondary">Jitte </div>
+                    </div>
+                    <form name="db-select" method="post" action="#">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-check mt-2 p-3 bg-light rounded-3">
+                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="mysql-mariadb">
+                                    <label class="form-check-label" for="mysql-mariadb">
+                                        <span class="fas fa-database display-5 ms-2 "></span>
+                                        MySQL/MariaDB
+                                    </label>
+                                </div>
+                                <div class="form-check mt-2 p-3 bg-light rounded-3">
+                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="postgresql" disabled>
+                                    <label class="form-check-label" for="postgresql">
+                                        <span class="fas fa-database display-5 ms-2 "></span>
+                                        PostgreSQL
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check mt-2 p-3 bg-light rounded-3">
+                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="sqlite" disabled>
+                                    <label class="form-check-label" for="sqlite">
+                                        <span class="fas fa-database display-5 ms-2 "></span>
+                                        SQLite
+                                    </label>
+                                </div>
+                                <div class="form-check mt-2 p-3 bg-light rounded-3">
+                                    <input class="form-check-input ms-2" type="radio" name="db-driver" id="mongodb" disabled>
+                                    <label class="form-check-label" for="mongodb">
+                                        <span class="fas fa-database display-5 ms-2 "></span>
+                                        MongoDB
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 
