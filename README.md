@@ -1,3 +1,24 @@
+# 🚀 JITTE-ACL
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-5.7-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Composer](https://img.shields.io/badge/Composer-2.8-885630?style=for-the-badge&logo=composer&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-18.20-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+
+---
+
+### 📌 Descrição
+Este projeto tem por objetivo servir como base de desenvolvimento para sistemas maiores, abstraindo rotinas iniciais
+
+📂 Estrutura do Projeto
+.  
+├── docker-compose.yml  
+├── Dockerfile  
+├── .env-exemple  
+├── app/               # Código-fonte do projeto  
+└── README.md
 ##### CLONANDO PROJETOS
 
 * Clone, mantendo nome original do projeto:
@@ -11,15 +32,9 @@ ou
 git clone --recurse-submodules https://github.com/nailtonmauricio/jitte-acl.git novo_nome_projeto
 ```
 
-##### QUANDO NECESSÁRIO AJUSTE AS PERMISSÕES DE DIRETÓRIOS E ARQUIVOS
-ALTERAR O PROPRIETÁRIO DO DIRETÓRIO DO PROJETO PARA O USUÁRIO HOST
-```sh
-sudo chown -R $USER:$USER /caminho_do_projeto
-```
-
 #### ACESSE O DIRETÓRIO DO PROJETO
 ```sh
-cd app-laravel/
+cd app-name/
 ```
 
 ###### Crie o Arquivo .env
@@ -56,7 +71,7 @@ docker compose up -d
 ```
 
 
-###### Acessar o container
+###### Acessar o container app
 ```sh
 docker compose exec app bash
 ```
@@ -69,22 +84,22 @@ npm install
 ```
 
 
-GERAR O KEY DA APLICAÇÃO
+###### GERAR O KEY DA APLICAÇÃO
 ```sh
 php artisan key:generate
 ```
 
-RODAR AS MIGRATIONS
+###### RODAR AS MIGRATIONS
 ```sh
 php artisan migrate
 ```
 
-RODAR AS SEEDERS
+###### RODAR AS SEEDERS
 ```sh
 php artisan db:seed
 ```
 
-INICIAR O VITE
+###### INICIAR O VITE
 ```sh
 npm run dev
 ```
