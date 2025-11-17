@@ -1,13 +1,13 @@
 @extends('templates.login.index')
 @section('content')
     <div class="row mt-5">
-        <h3 class="text-center">Área de Login</h3>
+        <h3 class="text-center">JITTE-ACL</h3>
     </div>
     <form class="login100-form validate-form" action="{{ route('login.process') }}" method="POST">
         @csrf
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="email" name="email" placeholder="e-mail">
-            <label for="email">E-Mail de usuário</label>
+            <label for="email">E-Mail</label>
         </div>
         <div class="form-floating mb-3">
             <input type="password" class="form-control" id="password" name="password" placeholder="Senha">

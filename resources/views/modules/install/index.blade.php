@@ -7,8 +7,8 @@
                 <button class="nav-link" id="nav-terms-tab" data-bs-toggle="tab" data-bs-target="#nav-terms" type="button" role="tab" aria-controls="nav-terms" aria-selected="false">Termos</button>
                 <button class="nav-link" id="nav-sgdb-tab" data-bs-toggle="tab" data-bs-target="#nav-sgdb" type="button" role="tab" aria-controls="nav-sgdb" aria-selected="true">Base de Dados</button>
                 <button class="nav-link" id="nav-dbconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-dbconfig" type="button" role="tab" aria-controls="nav-dbconfig" aria-selected="false">Configuração DB</button>
-                <button class="nav-link" id="nav-cmsconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-cmsconfig" type="button" role="tab" aria-controls="nav-cmsconfig" aria-selected="false">Configuração CMS</button>
-                <button class="nav-link" id="nav-install-tab" data-bs-toggle="tab" data-bs-target="#nav-install" type="button" role="tab" aria-controls="nav-install" aria-selected="false">Instalar CMS</button>
+                <button class="nav-link" id="nav-cmsconfig-tab" data-bs-toggle="tab" data-bs-target="#nav-cmsconfig" type="button" role="tab" aria-controls="nav-cmsconfig" aria-selected="false">Configuração PWA</button>
+                <button class="nav-link" id="nav-install-tab" data-bs-toggle="tab" data-bs-target="#nav-install" type="button" role="tab" aria-controls="nav-install" aria-selected="false">Instalar PWA</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -116,7 +116,7 @@
                             </table>
                         </div>
 
-                        <div class="text-end text-secondary">Jitte </div>
+                        <div class="text-end text-secondary"> {{ env('APP_VERSION') }}</div>
                     </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                             </div>
                         </form>
 
-                        <div class="text-end text-secondary">Jitte v1.0.0</div>
+                        <div class="text-end text-secondary">{{ env('APP_VERSION') }}</div>
                     </div>
                 </div>
             </div>
@@ -176,22 +176,21 @@
                     </div>
                     <div class="p-5 mb-4 bg-light rounded-3">
                         <div class="py-2">
-                            <h1 class="display-6 fw-bold">Jitte CMS</h1>
-                            <p class="col-md-8 fs-4">Bem vindo à instalação do JITTE CMS Versão , uma ferramenta desenvolvida especialmente para você.</p>
+                            <h1 class="display-6 fw-bold">Jitte PWA</h1>
+                            <p class="col-md-8 fs-4">Bem vindo à instalação do JITTE PWA Versão {{ env('APP_VERSION') }}, uma ferramenta desenvolvida especialmente para você.</p>
                             <p class="col-md-8 fs-4">Selecione o SGDB de sua preferência, as demais etapas da instalação levarão em conta essa configuração.</p>
                         </div>
-                        <div class="text-end text-secondary">Jitte </div>
+                        <div class="text-end text-secondary">{{ env('APP_VERSION') }}</div>
                     </div>
                     <form name="db-select" method="post" action="#">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-check mt-2 p-3 bg-light rounded-3">
+                                <label class="form-check mt-2 p-3 bg-light rounded-3 w-100">
                                     <input class="form-check-input ms-2" type="radio" name="db-driver" id="mysql-mariadb">
-                                    <label class="form-check-label" for="mysql-mariadb">
-                                        <span class="fas fa-database display-5 ms-2 "></span>
-                                        MySQL/MariaDB
-                                    </label>
-                                </div>
+                                    <span class="fas fa-database display-5 ms-2"></span>
+                                    MySQL/MariaDB
+                                </label>
+
                                 <div class="form-check mt-2 p-3 bg-light rounded-3">
                                     <input class="form-check-input ms-2" type="radio" name="db-driver" id="postgresql" disabled>
                                     <label class="form-check-label" for="postgresql">
@@ -276,7 +275,7 @@
                         </form>
                         É necessário testar o banco de dados antes de prosseguir. <button type="submit" class="btn btn-success">Testar</button>
 
-                        <div class="text-end text-secondary">Jitte</div>
+                        <div class="text-end text-secondary">{{ env('APP_VERSION') }}</div>
                     </div>
                 </div>
             </div>
@@ -319,7 +318,7 @@
                             </div>
                         </form>
 
-                        <div class="text-end text-secondary">Jitte </div>
+                        <div class="text-end text-secondary">{{ env('APP_VERSION') }}</div>
                     </div>
                 </div>
             </div>
@@ -327,7 +326,7 @@
             <div class="tab-pane fade show" id="nav-install" role="tabpanel" aria-labelledby="nav-install-tab" tabindex="0">
                 <!--
                 ====================================================================================================================
-                Instalação do CMS
+                Instalação do PWA
                 ====================================================================================================================
                 -->
                 <div class="mt-5">
@@ -346,7 +345,7 @@
                         </div>
                         <button type="button" class="btn btn-success">Instalar</button>
 
-                        <div class="text-end text-secondary">Jitte </div>
+                        <div class="text-end text-secondary">{{ env('APP_VERSION') }}</div>
                     </div>
                 </div>
             </div>
