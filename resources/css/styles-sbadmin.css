@@ -11241,3 +11241,34 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+.badge-counter {
+  position: absolute;
+  transform: scale(0.7);
+  transform-origin: top right;
+  right: 0.25rem;
+  top: 0.25rem;
+  font-size: 0.85rem;
+  padding: 0.25em 0.4em;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-gray-300 {
+  color: #dddfeb;
+}
+
+.text-gray-800 {
+  color: #5a5c69;
+}
+
+.card {
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
