@@ -6,40 +6,129 @@
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
     </div>
+
     <div class="row">
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-primary text-white mb-4">
-                <div class="card-body">CARD ROOT INFO</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Exibir detalhes</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        {{-- Usuários --}}
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-start border-4 border-primary shadow-sm h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <div class="col me-2">
+                            <div class="text-xs fw-bold text-primary text-uppercase mb-1">
+                                Usuários
+                            </div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">
+                                150
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+
+                    </div>
+                    <a href="#" class="stretched-link"></a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-warning text-white mb-4">
-                <div class="card-body">CARD ROOT WARNING</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Exibir detalhes</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+
+        {{-- Receita --}}
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-start border-4 border-success shadow-sm h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <div class="col me-2">
+                            <div class="text-xs fw-bold text-success text-uppercase mb-1">
+                                Receita
+                            </div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">
+                                R$ 12.500
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+
+                    </div>
+                    <a href="#" class="stretched-link"></a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-success text-white mb-4">
-                <div class="card-body">CAR ROOT SUCCESS</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Exibir detalhes</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+
+        {{-- Tarefas --}}
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-start border-4 border-warning shadow-sm h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <div class="col me-2">
+                            <div class="text-xs fw-bold text-warning text-uppercase mb-1">
+                                Tarefas
+                            </div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">
+                                18 pendentes
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <i class="fas fa-tasks fa-2x text-gray-300"></i>
+                        </div>
+
+                    </div>
+                    <a href="#" class="stretched-link"></a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-md-6">
-            <div class="card bg-danger text-white mb-4">
-                <div class="card-body">CARD ROOT DANGER</div>
-                <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Exibir detalhes</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+
+        {{-- Erros --}}
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-start border-4 border-danger shadow-sm h-100 py-2">
+                <div class="card-body">
+                    <div class="row align-items-center">
+
+                        <div class="col me-2">
+                            <div class="text-xs fw-bold text-danger text-uppercase mb-1">
+                                Erros
+                            </div>
+                            <div class="h5 mb-0 fw-bold text-gray-800">
+                                3 críticos
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
+                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                        </div>
+
+                    </div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Área de Gráficos A
+                </div>
+                <div class="card-body">
+                    <canvas id="loginAttemptsChart" width="100%" height="40"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Área de Gráficos B
+                </div>
+                <div class="card-body">
+                    <canvas id="myBarChart" width="100%" height="40"></canvas>
                 </div>
             </div>
         </div>
