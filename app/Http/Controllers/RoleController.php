@@ -40,7 +40,7 @@ class RoleController extends Controller
             #->map(fn($role) => "{$role->order_roles} - {$role->name}");
 
         return view('modules.role.create', [
-            'menu' => 'roles',
+            'menu' => 'niveis-acesso',
             'roles' => $roles,
         ]);
     }
