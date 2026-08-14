@@ -1,7 +1,7 @@
 @extends('templates.login.index')
 @section('content')
     <div class="row mt-5">
-        <h3 class="text-center">JITTE-ACL</h3>
+        <h3 class="text-center">JITTE TECNOLOGIA</h3>
     </div>
     <form class="login100-form validate-form" action="{{ route('login.process') }}" method="POST">
         @csrf
