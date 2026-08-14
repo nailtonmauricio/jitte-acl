@@ -9,8 +9,11 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.6",
+        "mpdf/mpdf": "^8.3",
+        "mpdf/qrcode": "^1.2",
         "owen-it/laravel-auditing": "^13.6",
-        "spatie/laravel-permission": "^6.9"
+        "spatie/laravel-permission": "^6.9",
+        "tonysm/rich-text-laravel": "^3.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
