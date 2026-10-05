@@ -35,6 +35,16 @@ class PermissionSeeder extends Seeder
                 'guard_name'=> 'web',
             ],
             [
+                'name' => 'role-create',
+                'description' => 'Formulário de registro para novos operadores',
+                'guard_name'=> 'web',
+            ],
+            [
+                'name' => 'role-edit',
+                'description' => 'Formulário de registro para novos operadores',
+                'guard_name'=> 'web',
+            ],
+            [
                 'name' => 'user-index',
                 'description' => 'Lista de operadores cadastrados',
                 'guard_name'=> 'web',

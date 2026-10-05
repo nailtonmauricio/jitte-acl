@@ -1,20 +1,32 @@
 <div class="card mb-4 border-light shadow">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <div class="flex-grow-1 d-flex justify-content-center">
-            <form wire:submit.prevent="search" class="d-flex" method="POST">
-                @csrf
-                <input wire:model.live.debounce.500ms="search" id="search" name="search" class="form-control" type="text" placeholder="Buscar por..." aria-label="Search for..." aria-describedby="btnNavbarSearch">
-            </form>
+    <div class="card-header d-flex justify-content-between align-items-center gap-2">
+        <div class="flex-grow-1">
+            <input
+                    wire:model.live.debounce.500ms="search"
+                    id="search"
+                    name="search"
+                    class="form-control"
+                    type="text"
+                    placeholder="Buscar por..."
+                    aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch"
+            >
         </div>
-        <span class="ms-auto">
-            <a href="{{ route('role.index') }}" class="bg-gradient btn btn-primary btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Listar" aria-label="Listar">
-                <i class="fa-solid fa-list"></i>
-            </a>
-        </span>
+
+        <span>
+        <a href="{{ route('role.index') }}"
+           class="bg-gradient btn btn-primary btn-sm"
+           data-bs-toggle="tooltip"
+           data-bs-placement="top"
+           data-bs-original-title="Listar"
+           aria-label="Listar">
+            <i class="fa-solid fa-list"></i>
+        </a>
+    </span>
     </div>
     <div class="card-body">
         <x-alert/>
-        <table id="customers" class="display table table-stripped table-hover mb-2">
+        <table class="table table-striped table-hover mb-2">
             <thead>
             <tr>
                 <th>ID</th>
